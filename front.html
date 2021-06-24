@@ -1,0 +1,98 @@
+ 
+<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://kit.fontawesome.com/b23a20a39d.js" crossorigin="anonymous"></script>
+        <title>Search Box</title>
+
+</head>
+
+
+
+<div class="login-box">
+    <h2>Docker Web Portal</h2>
+    <form>
+      <div class="user-box">
+        <input id="in1" type="text" name="" required="">
+        <label>Type your command here</label>
+      </div>
+      <!--<div class="user-box">
+        <input type="password" name="" required="">
+        <label>Password</label>
+      </div>-->
+      <a onclick="fn()" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Run
+      </a>
+      <div id="ip1" onclick="fn2()"> Images </div> 
+    </form>
+</div>
+
+
+<img id="im1" src="pnfile.png", alt="docker" width="100" height="100"> 
+
+
+<pre>   
+<div id="d1"> >_ your output will be printed here</div>
+</pre>
+
+<!-- 
+<div onclick="alert('hi')"> click here to check sync </div>
+<button id="b1" onclick="lw()"> click </button> -->
+<script>
+function fn(){
+
+var i = document.getElementById('in1').value;
+var xhr = new XMLHttpRequest();
+xhr.open("POST","http://192.168.43.161/cgi-bin/back.py?x="+i,true);
+
+xhr.send();
+
+xhr.onload = function(){
+    var output=xhr.responseText;
+    document.getElementById("d1").innerHTML=output;
+}
+}
+
+function fn2(){
+
+i="docker images"
+var xhr = new XMLHttpRequest();
+xhr.open("POST","http://192.168.43.161/cgi-bin/back.py?x="+i,true);
+
+xhr.send();
+
+xhr.onload = function(){
+    var output=xhr.responseText;
+    document.getElementById("d1").innerHTML=output;
+}
+}
+
+</script>
+
+
+
+<!--
+[root@local~#]
+
+
+<style>
+    body {
+        background-image: url('file:///var/www/html/2982370.png');
+    }
+</style>
+
+<div class="search-box">
+            <input id="in1" class="search-txt" type="text" name="" placeholder="Type to search">
+            <a onclick="lw()" class="search-btn" href="#">
+                <i class="fas fa-terminal"></i>
+            </a>
+</div>
+
+
+
+
+-->
